@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Физика 9 класс - Интерактивный справочник</title>
+</head>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box}
+    body {
+        font-family: 'Segoe UI', system-ui, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        padding: 20px;
+        min-height: 100vh;
+    }
+
+    .header {
+        text-align: center;
+        color: white;
+        margin-bottom: 30px;
+    }
+
+    .header h1 {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .header p {
+        font-size: 1.2em;
+        opacity: 0.9;
+
+    }
+
+    .accordion {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .section {
+        background: white;
+        border-radius: 15px;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .section:hover {
+        transform: translateY(-5px);
+    }
+
+    .section-header {
+        padding: 25px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+        font-size: 20px;
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        color: white;
+        transition: all 0.3 ease;
+    }
+
+    .section-header:hover {
+        background: linear-gradient(135deg, #f5576c 0%, #f093fb 100%);
+    }
+
+    .section-header::after {
+        content: "+";
+        font-size: 24px;
+        font-weight: bold;
+        transition: all 0.3 ease;
+    }
+
+    .section.active .section-header::after {
+        content: "-";
+    }
+
+    .topics {
+        padding: 0 25px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+    }
+
+    .section.active .topics {
+        max-height: 600px;
+        padding: 20px 25px 25px;
+    }
+
+    .topic-list {
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 15px;
+    }
+
+    .topic-list li {
+        background: #f8f9fa;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    .topic-list li:hover {
+        background: #e9ecef;
+        transform: scale(1.05);
+    }
+
+    .topic-link {
+        color: #495057;
+        text-decoration: none;
+        display: block;
+        padding: 15px 20px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .topic-link:hover {
+        color: #667eea;
+    }
+
+    .footer {
+        text-align: center;
+        color: white;
+        margin-top: 40px;
+        opacity: 0.8;
+    }
+</style>
+<body>
+    <div class="header">
+        <h1>Физика 9 класс</h1>
+        <p>Интерактивный справочник с формулами и объяснениями</p>
+    </div>
+
+    <div class="accordion">
+        <div class="section">
+            <div class="section-header">Механика</div>
+            <div class="topics">
+                <ul class="topic-list">
+                    <li><a href="topics/mechanics/kinematika.html" class="topic-link">Кинематика</a></li>
+                    <li><a href="topics/mechanics/dinamika.html" class="topic-link">Динамика</a></li>
+                    <li><a href="topics/mechanics/statika.html" class="topic-link">Статика</a></li>
+                    <li><a href="topics/mechanics/newton_laws.html" class="topic-link">Законы Ньютона</a></li>
+                    <li><a href="topics/mechanics/circular-motion.html" class="topic-link">Двжение по окружности</a></li>
+                    <li><a href="topics/mechanics/impulse_conservation.html" class="topic-link">Закон сохранения энергии</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">Тепловые явления</div>
+            <div class="topics">
+                <ul class="topic-list">
+                    <li><a href="topics/thermal/temperature.html" class="topic-link">Температура и тепловое равновесие</a></li>
+                    <li><a href="topics/thermal/heat_transfer.html" class="topic-link">Теплопередача</a></li>
+                    <li><a href="topics/thermal/gas_laws.html" class="topic-link">Уравнение состояния идеального газа</a></li>
+                    <li><a href="topics/thermal/thermodynamics" class="topic-link">Первый закон термодинамики</a></li>
+                    <li><a href="topics/thermal/heat_engines.html" class="topic-link">Тепловые двигатели</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">Электромагнетизм</div>
+            <div class="topics">
+                <ul class="topic-list">
+                    <li><a href="topics/electromagnetism/electric_field.html" class="topic-link">Электрическое поле</a></li>
+                    <li><a href="topics/electromagnetism/current_laws.html" class="topic-link">Законы постоянного тока</a></li>
+                    <li><a href="topics/electromagnetism/magnetic_fields.html" class="topic-link">Магнитное поле</a></li>
+                    <li><a href="topics/electromagnetism/induction.html" class="topic-link">Электромагнитная индукция</a></li>
+                    <li><a href="topics/electromagnetism/oscillations.html" class="topic-link">Электромагнитные колебания</a></li>
+                    <li><a href="topics/electromagnetism/waves.html" class="topic-link">Электромагнитные волны</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">Оптика</div>
+            <div class="topics">
+                <ul class="topic-list">
+                    <li><a href="topics/optics/reflection_refraction.html" class="topic-link">Отражение и преломление света</a></li>
+                    <li><a href="topics/optics/lenses.html" class="topic-link">Линзы</a></li>
+                    <li><a href="topics/optics/optical_instruments.html" class="topic-link">Оптические приборы</a></li>
+                    <li><a href="topics/optics/wave_properties.html" class="topic-link">Волновые свойства света</a></li>
+                    <li><a href="topics/optics/dispertion.html" class="topic-link">Дисперсия света</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section">
+            <div class="section-header">Квантовая физика</div>
+            <div class="topics">
+                <ul class="topic-list">
+                    <li><a href="topics/quantum/photoeffect.html" class="topic-link">Фотоэффект</a></li>
+                    <li><a href="topics/quantum/atom_structure.html" class="topic-link">Строение атома</a></li>
+                    <li><a href="topics/quantum/nuclear_reactions.html" class="topic-link">Ядерные реакции</a></li>
+                    <li><a href="topics/quantum/radioactivity.html" class="topic-link">Радиоактивность</a></li>
+                    <li><a href="topics/quantum/elementary_particles.html" class="topic-link">Элементарные частицы</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p>Изучайте физику с удовольствием!</p>
+    </div>
+
+    <script>
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const section = header.parentElement;
+                const isActive = section.classList.contains('active');
+
+                document.querySelectorAll('.section.active').forEach(activeSection => {
+                    if (activeSection !== section) {
+                        activeSection.classList.remove('active');
+                    };
+                });
+
+                section.classList.toggle('active', !isActive);
+            });
+        });
+    </script>
+</body>
+</html>
